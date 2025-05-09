@@ -1,38 +1,46 @@
-# Operating System Files
+# General development ignores
+*.log
+*.tmp
+*.bak
+.DS_Store
 
-*.DS_Store
-Thumbs.db
-*.sw?
-.#*
-*#
-*~
-*.sublime-*
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
 
-# Build Artifacts
+# Build systems
+# Maven
+**/target/
+**/pom.xml.versionsBackup
+**/pom.xml.next
 
-.gradle/
-build/
-target/
-bin/
-out/
-dependency-reduced-pom.xml
+# Gradle
+**/.gradle/
+**/build/
+gradle-app.setting
 
-# Eclipse Project Files
+# IDE specific
+**/.idea/
+**/*.iml
+**/*.iws
+**/*.ipr
+**/out/
 
-.classpath
-.project
-.metadata
-.loadpath
-bin/
-.settings/
+# Dependency directories
+**/lib/
+**/libs/
 
-# IntelliJ IDEA Files
+# Test coverage
+**/coverage/
+**/site/
 
-*.iml
-*.ipr
-*.iws
-*.idea
+# Environment files
+**/.env
+**/local.properties
 
-.vscode/
-README.html
-
+# Spring Boot specific
+!**/src/main/resources/application.properties  # Keep main config
+**/application-*.properties  # Ignore profile-specific configs
+**/application-*.yml
