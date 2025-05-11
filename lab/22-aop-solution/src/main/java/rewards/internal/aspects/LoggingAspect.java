@@ -29,7 +29,7 @@ public class LoggingAspect {
 		this.monitorFactory = monitorFactory;
 	}
 
-	@Before("execution(public * rewards.internal.*.*Repository.find*(..))")
+	@Before("execution(* rewards.internal.*.*Repository.find*(..))")
 	public void implLogging(JoinPoint joinPoint) {
         logger.info(BEFORE + " advice implementation - " + joinPoint.getTarget().getClass() + //
                     "; Executing before " + joinPoint.getSignature().getName() + //
