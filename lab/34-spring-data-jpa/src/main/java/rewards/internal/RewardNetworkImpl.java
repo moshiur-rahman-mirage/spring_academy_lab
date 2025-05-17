@@ -44,8 +44,9 @@ public class RewardNetworkImpl implements RewardNetwork {
 	
 	@Transactional
 	public RewardConfirmation rewardAccountFor(Dining dining) {
-		Account account = accountRepository.findByCreditCard(dining.getCreditCardNumber());
-		Restaurant restaurant = restaurantRepository.findByMerchantNumber(dining.getMerchantNumber());
+		System.out.println(dining.toString());
+		Account account = accountRepository.findByCreditCardNumber(dining.getCreditCardNumber());
+		Restaurant restaurant = restaurantRepository.findByNumber(dining.getMerchantNumber());
 		MonetaryAmount amount = restaurant.calculateBenefitFor(account, dining);
 		AccountContribution contribution = account.makeContribution(amount);
 		return rewardRepository.confirmReward(contribution, dining);
